@@ -18,7 +18,7 @@ windows:
 	mkdir -p build/windows
 	${GODOT} src/project.godot --export windows ../build/windows/timer.exe
 
-release:
+release: all
 	butler push build/linux duckinator/timer:linux
 	butler push build/windows duckinator/timer:windows
 	butler push build/mac duckinator/timer:mac
