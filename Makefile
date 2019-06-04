@@ -19,9 +19,9 @@ windows:
 	${GODOT} src/project.godot --export windows ../build/windows/timer.exe
 
 release:
-	butler push build/linux duckinator/keress:linux-nightly
-	butler push build/windows duckinator/keress:windows-nightly
-	butler push build/mac duckinator/keress:mac-nightly
+	butler push build/linux duckinator/timer:linux
+	butler push build/windows duckinator/timer:windows
+	butler push build/mac duckinator/timer:mac
 
 clean:
 	rm build/*.zip || exit 0
