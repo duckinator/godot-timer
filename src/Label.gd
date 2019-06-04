@@ -12,6 +12,16 @@ func _ready():
 	timer.one_shot = false
 	timer.connect("timeout", self, "timeout_handler")
 
+# Allow to click+drag the window.
+func _input(event):
+	if not Input.is_mouse_button_pressed(BUTTON_LEFT) or Input.is_mouse_button_pressed(BUTTON_RIGHT):
+		return
+	
+	if not event is InputEventMouseMotion:
+		return
+	
+	OS.window_position += event.position - (OS.window_size / 2)
+
 func _process(delta):
 	if not running and Input.is_action_just_pressed("ui_cancel"):
 		stop()
